@@ -1,7 +1,7 @@
 ## PAYMENT BOOK - WooCommerce Plugin
 
 ### Overview
-Payment Book is a robust payment gateway plugin for WooCommerce designed to handle diverse card payment requirements. It offers a flexible architecture where merchants can specify multiple services with separate configurations for each client, ensuring a customized payment experience.
+PAYMENT BOOK is a robust payment gateway plugin for WooCommerce designed to handle diverse card payment requirements. It offers a flexible architecture where merchants can specify multiple services with separate configurations for each client, ensuring a customized payment experience.
 
 ### Key Features
 - **Universal Card Acceptance**: Ready to accept all major credit and debit cards securely.
