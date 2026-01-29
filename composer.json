@@ -1,0 +1,47 @@
+{
+    "name": "payment_book/woocommerce-plugin",
+    "description": "WooCommerce plugin for PAYMENT BOOK",
+    "type": "wordpress-plugin",
+    "homepage": "https://payment-book.com",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "DOMONK Factory",
+            "email": "info@domonk.com",
+            "homepage": "https://domonk.com",
+            "role": "Development Team"
+        },
+        {
+            "name": "Maksims Gerasimovs (microwave)",
+            "email": "maksimsge@gmail.com",
+            "homepage": "https://github.com/madmicrowave",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "payment_book/signer": "^0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PBGateway\\": "includes/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:payment-book-com/lib-signer.git"
+        }
+    ]
+}
