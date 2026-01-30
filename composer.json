@@ -23,9 +23,9 @@
         "payment_book/signer": "^0.0"
     },
     "autoload": {
-        "psr-4": {
-            "PBGateway\\": "includes/"
-        }
+        "classmap": [
+            "includes/"
+        ]
     },
     "config": {
         "optimize-autoloader": true,
@@ -43,5 +43,8 @@
             "type": "git",
             "url": "git@github.com:payment-book-com/lib-signer.git"
         }
-    ]
+    ],
+    "require-dev": {
+        "pestphp/pest": "^4.3"
+    }
 }
