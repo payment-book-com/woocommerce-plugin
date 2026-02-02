@@ -36,7 +36,7 @@ PAYMENT BOOK is a robust payment gateway plugin for WooCommerce designed to hand
 ### Configuration
 1. Navigate to **WooCommerce > Settings > Payments**.
 2. Locate **PAYMENT BOOK** in the list and click **Finish set up** or **Manage**.
-3. Enter your **API Key Name**, **API Secret Key**, and **Service ID** obtained from your PAYMENT BOOK account.
+3. Enter your **API Token Name**, **API Token**, and **Service ID** obtained from your PAYMENT BOOK account.
 4. Ensure the **API URL** is correct (defaults to `https://payment-book.com/api/transaction/purchase/create`).
 5. Save changes.
 

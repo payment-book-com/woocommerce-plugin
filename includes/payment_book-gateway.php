@@ -57,11 +57,11 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
                 'default' => 'https://payment-book.com/api/transaction/purchase/create',
             ],
             'token_name' => [
-                'title' => 'API Key Name',
+                'title' => 'API Token Name',
                 'type' => 'text',
             ],
             'token' => [
-                'title' => 'API Secret Key',
+                'title' => 'API Token',
                 'type' => 'password',
             ],
             'service_id' => [
@@ -134,7 +134,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         $response = wp_remote_post($this->api_url, [
             'headers' => [
                 'Content-Type' => 'application/json',
-                'X-REQUEST-API-KEY' => $this->token_name,
+                'X-REQUEST-TOKEN-NAME' => $this->token_name,
             ],
             'body' => json_encode($signedPayload),
             'timeout' => 45,
