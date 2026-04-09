@@ -24,7 +24,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         $this->token_name = $this->get_option('token_name');
         $this->token = $this->get_option('token');
         $this->service_id = $this->get_option('service_id');
-        $this->api_url = $this->get_option('api_url', 'https://payment-book.com/api/transaction/purchase/create');
+        $this->api_url = $this->get_option('api_url', 'https://payment-book.com');
 
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options']);
         add_action('woocommerce_api_payment_book', [$this, 'check_callback']);
@@ -54,7 +54,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
             'api_url' => [
                 'title' => 'API URL',
                 'type' => 'text',
-                'default' => 'https://payment-book.com/api/transaction/purchase/create',
+                'default' => 'https://payment-book.com',
             ],
             'token_name' => [
                 'title' => 'API Token Name',
@@ -131,7 +131,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         }
 
         // Send request
-        $response = wp_remote_post($this->api_url, [
+        $response = wp_remote_post($this->api_url . '/api/transaction/purchase/create', [
             'headers' => [
                 'Content-Type' => 'application/json',
                 'X-REQUEST-TOKEN-NAME' => $this->token_name,
