@@ -40,15 +40,6 @@ PAYMENT BOOK is a robust payment gateway plugin for WooCommerce designed to hand
 4. Ensure the **API URL** is correct (defaults to `https://payment-book.com`).
 5. Save changes.
 
-### Webhook Configuration (CRITICAL)
-For the plugin to receive automatic payment confirmations, you **MUST** configure a webhook in your PAYMENT BOOK service backoffice:
-1. Log in to your PAYMENT BOOK account.
-2. Navigate to **Services > [Your Service] > Webhooks**.
-3. Add a new webhook with the following URL:
-   `https://your-domain.com/?wc-api=payment_book`
-   *(Replace `your-domain.com` with your actual website domain)*.
-4. Select the event type for Transaction Status Changes (e.g., `transaction.updated` or equivalent).
-
 ### Testing Flow
 1. **Setup**: Ensure the plugin is installed, activated, and configured with valid API credentials.
 2. **Product**: Create a test product or use an existing one in WooCommerce.
