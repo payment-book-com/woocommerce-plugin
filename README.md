@@ -56,7 +56,7 @@ PAYMENT BOOK is a robust payment gateway plugin for WooCommerce designed to hand
 
 ### FAQ
 **Q: Do I need to set up a scheduler (cron job) for status checks?**
-A: **No.** This plugin uses **Webhooks (Callbacks)** for real-time status updates, which is more efficient and faster than polling via schedulers. As long as you have configured the Webhook URL in your PAYMENT BOOK backoffice, your orders will update automatically.
+A: **No.** This plugin uses **Webhooks (Callbacks)** for real-time status updates, which is more efficient and faster than polling via schedulers, your orders will update automatically.
 
 ---
 
