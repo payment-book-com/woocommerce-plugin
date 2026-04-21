@@ -24,6 +24,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         $this->token_name = $this->get_option('token_name');
         $this->token = $this->get_option('token');
         $this->service_id = $this->get_option('service_id');
+        $this->payment_method_id = $this->get_option('payment_method_id');
         $this->api_url = $this->get_option('api_url', 'https://payment-book.com');
 
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options']);
@@ -67,6 +68,12 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
             'service_id' => [
                 'title' => 'Service ID',
                 'type' => 'text',
+            ],
+            'payment_method_id' => [
+                'title' => 'Payment Method ID',
+                'description' => 'Leave 0 and let gateway decide which payment method to use, or define specific payment_method_id',
+                'type' => 'text',
+                'default' => 0,
             ],
         ];
     }
@@ -121,6 +128,10 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
                 'token_name' => $this->token_name
             ]
         ];
+
+        if ((int)$this->payment_method_id) {
+            $payload['payment']['payment_method_id'] = (int)$this->payment_method_id;
+        }
 
         // Generate signature (Static method)
         try {
@@ -178,7 +189,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         }
 
         // Process status
-        $status = $payload['data']['operation']['status'] ?? 'unknown';
+        $status = $payload['transaction']['status'] ?? 'unknown';
         $orderId = $payload['meta']['reference_id'] ?? 0;
 
         $order = wc_get_order($orderId);
@@ -187,8 +198,8 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         }
 
         if ($status === 'success') {
-            $order->payment_complete($payload['data']['operation']['ulid'] ?? '');
-            $order->add_order_note('Payment confirmed via Webhook. Operation ID: ' . ($payload['data']['operation']['id'] ?? 'N/A'));
+            $order->payment_complete($payload['transaction']['ulid'] ?? '');
+            $order->add_order_note('Payment confirmed via Webhook. Transaction ULID: ' . ($payload['transaction']['ulid'] ?? 'N/A'));
         } elseif ($status === 'failed' || $status === 'error') {
             $order->update_status('failed', 'Payment failed via Webhook.');
         }

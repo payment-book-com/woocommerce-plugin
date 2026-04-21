@@ -19,6 +19,7 @@ class WC_Payment_Gateway {
     public $token_name;
     public $token;
     public $service_id;
+    public $payment_method_id;
     public $api_url;
 
     public function init_form_fields() {}
