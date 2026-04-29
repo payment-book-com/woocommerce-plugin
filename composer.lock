@@ -8,11 +8,11 @@
     "packages": [
         {
             "name": "payment_book/signer",
-            "version": "0.0.7",
+            "version": "0.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:payment-book-com/lib-signer.git",
-                "reference": "489e8d73074c9c7802b14cedd40343ca06f60402"
+                "reference": "a982b747565365d5f50b7f9fd03f6303d978605b"
             },
             "require": {
                 "php": ">=7.3"
@@ -45,7 +45,7 @@
             ],
             "description": "PAYMENT BOOK - Gateway Signer",
             "homepage": "https://payment-book.com",
-            "time": "2026-04-09T09:15:18+00:00"
+            "time": "2026-04-24T07:59:56+00:00"
         }
     ],
     "packages-dev": [
