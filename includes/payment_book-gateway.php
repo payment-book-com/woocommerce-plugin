@@ -71,7 +71,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
             ],
             'payment_method_id' => [
                 'title' => 'Payment Method ID',
-                'description' => 'Leave 0 and let gateway decide which payment method to use, or define specific payment_method_id',
+                'description' => 'Leave empty and let gateway decide which payment method to use, or define specific payment_method_id',
                 'type' => 'text',
                 'default' => 0,
             ],
