@@ -189,7 +189,7 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         }
 
         // Process status
-        $status = $payload['transaction']['status'] ?? 'unknown';
+        $status = $payload['data']['status'] ?? 'unknown';
         $orderId = $payload['meta']['reference_id'] ?? 0;
 
         $order = wc_get_order($orderId);
@@ -198,8 +198,8 @@ class PaymentBook_Gateway extends \WC_Payment_Gateway
         }
 
         if ($status === 'success') {
-            $order->payment_complete($payload['transaction']['ulid'] ?? '');
-            $order->add_order_note('Payment confirmed via Webhook. Transaction ULID: ' . ($payload['transaction']['ulid'] ?? 'N/A'));
+            $order->payment_complete($payload['data']['ulid'] ?? '');
+            $order->add_order_note('Payment confirmed via Webhook. Transaction ULID: ' . ($payload['data']['ulid'] ?? 'N/A'));
         } elseif ($status === 'failed' || $status === 'error') {
             $order->update_status('failed', 'Payment failed via Webhook.');
         }
