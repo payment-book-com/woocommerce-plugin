@@ -34,8 +34,8 @@ class WC_Payment_Gateway {
 }
 
 class WC_Order {
-    public function get_total() { return 100.00; }
-    public function get_currency() { return 'USD'; }
+    public function get_total() { return '100.00'; }
+    public function get_currency() { return 'EUR'; }
     public function get_billing_email() { return 'test@example.com'; }
     public function get_billing_phone() { return '1234567890'; }
     public function get_billing_first_name() { return 'John'; }

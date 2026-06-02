@@ -2,7 +2,7 @@
 /*
 Plugin Name: PAYMENT BOOK Gateway
 Description: WooCommerce payment gateway for PAYMENT BOOK
-Version: 0.0.4
+Version: 0.0.5
 Author: DOMONK Factory
 */
 
