@@ -4,3 +4,6 @@
 vendor/
 .pest/
 test-result/
+docker-compose.yml
+Makefile
+docker/
